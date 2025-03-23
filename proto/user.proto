@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "gapi/proto/user";
+
+import "google/api/annotations.proto";
+
+message User {
+    string id = 1;
+    string name = 2;
+}
+
+message GetUserRequest {
+    string id = 1;
+}
+
+message GetUserResponse {
+    User user = 1;
+}
+
+message ListUsersRequest {}
+
+message ListUsersResponse {
+    repeated User users = 1;
+}
+
+service UserService {
+    rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+      option (google.api.http) = {
+        get: "/v1/users/{id}"
+      };
+    }
+    rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
+      option (google.api.http) = {
+        get: "/v1/users"
+      };
+    }
+}
