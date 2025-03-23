@@ -1,8 +1,8 @@
 import express from 'express';
 import { Server, ServerCredentials } from '@grpc/grpc-js';
-import { UserServiceService } from './_generate/user_grpc_pb';
+import { UserServiceService } from './_generate/backend/user_grpc_pb';
 import { UserService } from './user_service';
-import { ListUsersRequest } from './_generate/user_pb';
+import { ListUsersRequest } from './_generate/backend/user_pb';
 import bodyParser from 'body-parser';
 const app = express();
 const userService = new UserService();

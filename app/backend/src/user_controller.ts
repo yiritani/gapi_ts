@@ -6,7 +6,7 @@ import {
   Tags,
 } from "tsoa";
 import { UserService } from './user_service';
-import { ListUsersRequest, ListUsersResponse } from './_generate/user_pb';
+import { ListUsersRequest, ListUsersResponse } from './_generate/backend/user_pb';
 
 @Route("/v1/users")
 @Tags("User")

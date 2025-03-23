@@ -1,5 +1,5 @@
-import { ListUsersRequest, ListUsersResponse, User, GetUserRequest, GetUserResponse } from './_generate/user_pb';
-import { IUserServiceServer } from './_generate/user_grpc_pb';
+import { ListUsersRequest, ListUsersResponse, User, GetUserRequest, GetUserResponse } from './_generate/backend/user_pb';
+import { IUserServiceServer } from './_generate/backend/user_grpc_pb';
 import * as grpc from '@grpc/grpc-js';
 
 export class UserService implements IUserServiceServer {

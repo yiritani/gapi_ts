@@ -4,10 +4,9 @@
   "main": "index.js",
   "scripts": {
     "pregenerate": "rm -rf app/backend/src/_generate && mkdir -p app/backend/src/_generate",
-    "generate": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./app/backend/src/_generate --grpc_out=grpc_js:./app/backend/src/_generate --grpc-gateway_out=app/backend/src/_generate --grpc-gateway_opt=paths=source_relative --ts_out=grpc_js:./app/backend/src/_generate -I ./proto ./proto/*.proto",
+    "generate": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./app/backend/src/_generate --grpc_out=grpc_js:./app/backend/src/_generate --grpc-gateway_out=./app/backend/src/_generate --grpc-gateway_opt=paths=source_relative --ts_out=grpc_js:./app/backend/src/_generate -I ./proto ./proto/backend/*.proto",
     "generate_google": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./app/backend/src/_generate --grpc_out=grpc_js:./app/backend/src/_generate --grpc-gateway_out=app/backend/src/_generate --grpc-gateway_opt=paths=source_relative --ts_out=grpc_js:./app/backend/src/_generate -I ./proto ./proto/google/api/*.proto",
-    "protoc": "make protoc",
-    "start": "ts-node app/backend/src/app.ts"
+    "protoc": "make protoc"
   },
   "keywords": [],
   "author": "",
