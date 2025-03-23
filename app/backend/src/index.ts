@@ -3,11 +3,14 @@ import { Server, ServerCredentials } from '@grpc/grpc-js';
 import { UserServiceService } from './_generate/user_grpc_pb';
 import { UserService } from './user_service';
 import { ListUsersRequest } from './_generate/user_pb';
-
+import bodyParser from 'body-parser';
 const app = express();
 const userService = new UserService();
+import { RegisterRoutes } from "./.build/routes";
 
-app.use(express.json());
+app.use(
+  bodyParser.json()
+)
 
 // gRPC server setup
 const server = new Server();
@@ -41,3 +44,5 @@ app.get('/v1/users', (req, res) => {
 app.listen(3000, () => {
   console.log('REST server running on port 3000');
 });
+
+RegisterRoutes(app);
